@@ -7,6 +7,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import groupme.bot.BotThread;
+import groupme.bot.MyListener;
 import herokutest.dto.HResponse;
 
 
@@ -23,6 +25,12 @@ public class WebResource {
 		HResponse r = new HResponse();
 		r.setMessage("Hi there");
 		System.out.println("SSS");
+		
+
+		BotThread bot = new BotThread();
+		bot.start();
+		
+		System.out.println("after thread");
 		
 		return r;
 	}

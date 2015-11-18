@@ -26,5 +26,4 @@
 	    <servlet-name>Test jersery service</servlet-name>
 	    <url-pattern>/web/*</url-pattern>
    </servlet-mapping>
-   
 </web-app>
