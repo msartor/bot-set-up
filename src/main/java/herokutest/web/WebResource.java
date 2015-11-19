@@ -20,17 +20,31 @@ public class WebResource {
 	@Path("/test")
 	@Produces(MediaType.APPLICATION_JSON)
 	public HResponse showTime() {
-	    // The method body
+		// The method body
 		
 		HResponse r = new HResponse();
 		r.setMessage("Hi there");
 		System.out.println("SSS");
 		
-
+		
 		BotThread bot = new BotThread();
 		bot.start();
 		
 		System.out.println("after thread");
+		
+		return r;
+	}
+	
+	
+	@GET 
+	@Path("/msg")
+	@Produces(MediaType.APPLICATION_JSON)
+	public HResponse msg() {
+	    // The method body
+		
+		HResponse r = new HResponse();
+		r.setMessage("Hi there");
+		System.out.println("SSS");
 		
 		return r;
 	}
