@@ -3,7 +3,9 @@
   <groupId>HerokuTest</groupId>
   <artifactId>HerokuTest</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
+<!--   <packaging>war</packaging>
+ --> 
+  <packaging>jar</packaging>
   <name>embeddedTomcatSample Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <properties>
