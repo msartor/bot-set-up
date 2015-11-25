@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<project name="test" default="compile" xmlns:ac="antlib:net.sf.antcontrib">
+	
+	<property name="root.path" location="${user.dir}"/>
+	<property name="root.path.target" location="${user.dir}/target/HerokuTest-0.0.1-SNAPSHOT.war"/>
+	
+	<property name="heroku.app.name" location="tranquil-depths-6766"/>
+    
+    
+    <property name="local.mysql.driver" location="/mysql-connector-java-5.1.35-bin.jar"/>
+    <property name="local.mysql.classname" location="com.mysql.jdbc.Driver"/>
+    <property name="local.mysql.classname" value="com.mysql.jdbc.Driver"/>
+	
+	
+    <property name="local.mysql.temp" value="temp.sql"/>
+
+	
+	<target name="init">
+		<taskdef resource="net/sf/antcontrib/antlib.xml" />
+	</target>
+    
+	<target name="maven" depends="init" >
+		<!-- Check if folder empty -->
+		<echo message="${root.path.target}"/>
+		<exec executable="mvn" failonerror="true">
+			<arg value="compile"/>
+			<arg value="war:war"/>
+        </exec>
+	</target>
+	
+	<target name="login" depends="maven" >
+			<input message="Enter heroku email:" addproperty="remote.username">
+				    <handler classname="org.apache.tools.ant.input.SecureInputHandler" />
+			</input>
+			<input message="password:" addproperty="remote.password">
+				    <handler classname="org.apache.tools.ant.input.SecureInputHandler" />
+			</input>
+			<exec executable="heroku" failonerror="true">
+				<arg value="login"/>
+	        </exec>
+	</target>
+	
+	<target name="compile" depends="maven" >
+			<exec executable="heroku" failonerror="true">
+				<arg value="deploy:war"/>
+				<arg value="--war"/>
+				<arg value="${root.path.target}"/>
+				<arg value="--app"/>
+				<arg value="${heroku.app.name}"/>
+	        </exec>
+	</target>
+    
+</project>

@@ -10,7 +10,7 @@ heroku open
 heroku plugins:install https://github.com/heroku/heroku-deploy
 
 #Create WAR
-mvn compile war:war 
+mvn compile war:war
 
 # Deploy WAR
 heroku deploy:war --war <path_to_war_file> --app <app_name>
