@@ -22,14 +22,14 @@ public class HelloServlet extends HttpServlet {
             throws ServletException, IOException {
     	
     	
-    	BotThread bot = new BotThread();
-		bot.start();
-    	
-    	
-        ServletOutputStream out = resp.getOutputStream();
-        out.write("hello heroku".getBytes());
-        out.flush();
-        out.close();
+//    	BotThread bot = new BotThread();
+//		bot.start();
+//    	
+//    	
+//        ServletOutputStream out = resp.getOutputStream();
+//        out.write("hello heroku".getBytes());
+//        out.flush();
+//        out.close();
     }
 
 }

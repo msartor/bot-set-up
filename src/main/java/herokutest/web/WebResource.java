@@ -27,8 +27,8 @@ public class WebResource {
 		System.out.println("SSS");
 		
 		
-		BotThread bot = new BotThread();
-		bot.start();
+//		BotThread bot = new BotThread();
+//		bot.start();
 		
 		System.out.println("after thread");
 		
