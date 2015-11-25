@@ -1,5 +1,7 @@
 package servlet;
 
+import groupme.bot.BotThread;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -18,6 +20,12 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+    	
+    	
+    	BotThread bot = new BotThread();
+		bot.start();
+    	
+    	
         ServletOutputStream out = resp.getOutputStream();
         out.write("hello heroku".getBytes());
         out.flush();
